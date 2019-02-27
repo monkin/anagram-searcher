@@ -39,13 +39,13 @@ long long get_time() {
 }
 
 int main(int argc, char *argv[]) {
+    long long startTime = get_time();
+
     if (argc != 3) {
         printf("Invalid argumets count.\n");
         printf("Usage: executable path/to/dictionary.txt word\n");
         return -1;
     }
-
-    long long startTime = get_time();
 
     const char *arg1 = argv[1];
     const char *arg2 = argv[2];
