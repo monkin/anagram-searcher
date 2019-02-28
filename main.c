@@ -38,6 +38,15 @@ long long get_time() {
 	return currentTime.tv_sec * ((long long) 1e6) + currentTime.tv_usec;
 }
 
+// sum of the word char codes
+int sum = 0;
+// length of the word
+int length = 0;
+// maximum char code in the word
+char max = 0;
+
+word_t word = { 0 };
+
 int main(int argc, char *argv[]) {
     long long startTime = get_time();
 
@@ -49,11 +58,6 @@ int main(int argc, char *argv[]) {
 
     const char *arg1 = argv[1];
     const char *arg2 = argv[2];
-
-    int sum = 0;
-    int length = 0;
-    char max = 0;
-    word_t word = { 0 };
     
     for (length = 0; length < 32 && arg2[length]; length++) {
         char c = arg2[length];
@@ -91,6 +95,7 @@ int main(int argc, char *argv[]) {
             }
 
             if (wsum == sum) {
+                // this flag is used to skip excact copy of the word
                 int different = 0;
                 word_t w = word;
                 for (const char *i = p; i < e; i++) {
